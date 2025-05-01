@@ -1,11 +1,13 @@
 package main
 
 import (
+	"jwttest/db"
 	"jwttest/middleware"
 	"jwttest/routes"
 	"jwttest/routes/api"
 	"jwttest/routes/auth"
 	"log"
+	"os"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
@@ -20,6 +22,12 @@ func main() {
 	}
 
 	log.Println("Loaded environment variables")
+
+	// Connect to database
+	err = db.ConnectMongo(os.Getenv("MONGO_URI"), "velai-db")
+	if err != nil {
+		log.Fatal("Could not connect to MongoDB: ", err)
+	}
 
 	log.Println("Server Started")
 
