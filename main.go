@@ -8,9 +8,19 @@ import (
 	"log"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+
+	// Load Environment Variables
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
+	log.Println("Loaded environment variables")
+
 	log.Println("Server Started")
 
 	app := fiber.New()
@@ -24,9 +34,14 @@ func main() {
 	// login endpoint
 	app.Post("/login", auth.Login)
 
+	// api router routes
 	apiRouter := app.Group("/api", middleware.JWTMiddleware)
 
+	// health check for /api/health
 	apiRouter.Get("/health", api.Health)
 
-	app.Listen("127.0.0.1:8000")
+	// route group for /api/
+	// apiRouter.Get("/task", api.task)
+
+	app.Listen(":8000")
 }
