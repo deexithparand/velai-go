@@ -19,7 +19,7 @@ func main() {
 	app.Post("/api/signup", routes.Signup)
 
 	// login endpoint
-	// app.Post("/api/login", routes.Login)
+	app.Post("/api/login", routes.Login)
 
 	app.Listen("127.0.0.1:8000")
 }
