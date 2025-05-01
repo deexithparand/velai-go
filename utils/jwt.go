@@ -1,18 +1,33 @@
 package utils
 
 import (
+	"log"
+	"os"
 	"time"
 
 	"github.com/gofiber/fiber"
 	"github.com/golang-jwt/jwt/v5"
+	"github.com/joho/godotenv"
 )
 
 // just send a userID & get your token via a cookie
 func GenerateJWT(userId string) (fiber.Cookie, error) {
 
-	var secretKey string = "get me from the env file"
-	var cookie fiber.Cookie
+	var (
+		secretKey string
+		cookie    fiber.Cookie
+		err       error
+	)
 
+	// GET jwt secret key
+	err = godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
+	secretKey = os.Getenv("JWT_SECRET_KEY")
+
+	// JWT Claims
 	claims := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"sub":    userId,
 		"expiry": time.Now().Add(time.Hour * 24).Unix(),

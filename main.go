@@ -1,7 +1,9 @@
 package main
 
 import (
+	"jwttest/middleware"
 	"jwttest/routes"
+	"jwttest/routes/api"
 	"jwttest/routes/auth"
 	"log"
 
@@ -22,7 +24,9 @@ func main() {
 	// login endpoint
 	app.Post("/login", auth.Login)
 
-	// protected := app.Group("/api")
+	apiRouter := app.Group("/api", middleware.JWTMiddleware)
+
+	apiRouter.Get("/health", api.Health)
 
 	app.Listen("127.0.0.1:8000")
 }
