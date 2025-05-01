@@ -12,7 +12,14 @@ func main() {
 
 	app := fiber.New()
 
-	app.Get("/api/health", routes.GetHealthCheck)
+	// health check endpoint
+	app.Get("/api/health", routes.HealthCheck)
+
+	// signup endpoint
+	app.Post("/api/signup", routes.Signup)
+
+	// login endpoint
+	// app.Post("/api/login", routes.Login)
 
 	app.Listen("127.0.0.1:8000")
 }
