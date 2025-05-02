@@ -1,6 +1,6 @@
 # Velai-Go 🧠
 
-Backend service for the [Velai](https://velai.onrender.com/) platform — a job tracking and career management tool.
+Backend service for the [Velai](https://velai.onrender.com/) platform — a task tracking and management tool, built with Golang and Fiber.
 
 ## 🔗 Live URLs
 
@@ -48,3 +48,6 @@ docker run -d -p 8000:8000 velai-go
 All API endpoints are hosted at:
 `https://velai-go.onrender.com/`
 
+## 🎥 Demo Video
+
+Watch the demo video here: [Demo Video](https://www.loom.com/share/807b0d5ff7434e56957f5be5869bbc12?sid=a80245a8-e926-40e2-9a8f-01ff9027450d)
