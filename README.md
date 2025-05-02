@@ -4,7 +4,7 @@ Backend service for the [Velai](https://velai.onrender.com/) platform — a job 
 
 ## 🔗 Live URLs
 
-- **Frontend**: [velai-go.onrender.com](https://velai.onrender.com/)
+- **Frontend**: [velai.onrender.com](https://velai.onrender.com/)
 - **Backend API**: [velai-go.onrender.com](https://velai-go.onrender.com/)  
 - **Frontend Repo**: [github.com/deexithparand/velai](https://github.com/deexithparand/velai)
 
