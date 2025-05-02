@@ -1,10 +1,10 @@
 # Velai-Go 🧠
 
-Backend service for the [Velai](https://velai-go.onrender.com/) platform — a job tracking and career management tool.
+Backend service for the [Velai](https://velai.onrender.com/) platform — a job tracking and career management tool.
 
 ## 🔗 Live URLs
 
-- **Frontend**: [velai-go.onrender.com](https://velai-go.onrender.com/)
+- **Frontend**: [velai-go.onrender.com](https://velai.onrender.com/)
 - **Backend API**: [velai-go.onrender.com](https://velai-go.onrender.com/)  
 - **Frontend Repo**: [github.com/deexithparand/velai](https://github.com/deexithparand/velai)
 
