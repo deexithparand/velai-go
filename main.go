@@ -10,6 +10,7 @@ import (
 	"os"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/joho/godotenv"
 )
 
@@ -33,6 +34,13 @@ func main() {
 
 	app := fiber.New()
 
+	app.Use(cors.New(cors.Config{
+		AllowOrigins:     "https://velai.onrender.com/", // Your frontend
+		AllowHeaders:     "Origin, Content-Type, Accept, Authorization",
+		AllowMethods:     "GET,POST,OPTIONS",
+		AllowCredentials: true,
+	}))
+
 	// health check endpoint
 	app.Get("/health", routes.HealthCheck)
 
@@ -48,8 +56,15 @@ func main() {
 	// health check for /api/health
 	apiRouter.Get("/health", api.Health)
 
-	// route group for /api/
-	// apiRouter.Get("/task", api.task)
+	// route group for /api/users
+	apiRouter.Get("/users", api.GetUsers)
+	apiRouter.Post("/users", api.AddUsers)
+
+	// route group for /api/tasks
+	apiRouter.Post("/suggest", api.SuggestTasks)
+	apiRouter.Post("/tasks", api.GetTasks)
+	apiRouter.Post("/add-task", api.AddTask)
+	apiRouter.Post("/delete-task", api.DeleteTask)
 
 	app.Listen(":8000")
 }

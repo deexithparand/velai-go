@@ -12,8 +12,6 @@ import (
 // verify the token with the signature
 func JWTMiddleware(c *fiber.Ctx) error {
 
-	log.Info("Entered Middleware")
-
 	authHeader := c.Get("Authorization")
 
 	if authHeader == "" || !strings.HasPrefix(authHeader, "Bearer") {
@@ -29,8 +27,6 @@ func JWTMiddleware(c *fiber.Ctx) error {
 		return []byte(jwtSecret), nil
 	})
 
-	log.Errorf("got the error %v", err)
-
 	if err != nil || !token.Valid {
 		return c.Status(fiber.StatusUnauthorized).SendString("Invalid or expired token")
 	}
@@ -38,6 +34,8 @@ func JWTMiddleware(c *fiber.Ctx) error {
 	// Optionally set user info in context
 	claims := token.Claims.(jwt.MapClaims)
 	c.Locals("username", claims["username"])
+
+	log.Info("Passed JWT Middleware")
 
 	return c.Next()
 }

@@ -4,7 +4,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/gofiber/fiber"
+	"github.com/gofiber/fiber/v2"
 	"github.com/golang-jwt/jwt/v5"
 )
 
@@ -14,7 +14,7 @@ func GetJWTSecret() string {
 }
 
 // just send a userID & get your token via a cookie
-func GenerateJWT(userId string) (fiber.Cookie, error) {
+func GenerateJWT(email string) (fiber.Cookie, error) {
 	var (
 		secretKey string
 		cookie    fiber.Cookie
@@ -25,7 +25,7 @@ func GenerateJWT(userId string) (fiber.Cookie, error) {
 
 	// JWT Claims
 	claims := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
-		"sub":    userId,
+		"sub":    email,
 		"expiry": time.Now().Add(time.Hour * 24).Unix(),
 	})
 
