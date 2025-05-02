@@ -17,15 +17,18 @@ import (
 func main() {
 
 	// Load Environment Variables
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
+	if os.Getenv("RENDER") == "" { // Only load .env in local dev
+		err := godotenv.Load()
+		if err != nil {
+			log.Fatal("Error loading .env file")
+		}
+		log.Println("Loaded environment variables from .env")
 	}
 
 	log.Println("Loaded environment variables")
 
 	// Connect to database
-	err = db.ConnectMongo(os.Getenv("MONGO_URI"), "velai-db")
+	err := db.ConnectMongo(os.Getenv("MONGO_URI"), "velai-db")
 	if err != nil {
 		log.Fatal("Could not connect to MongoDB: ", err)
 	}
