@@ -38,7 +38,7 @@ func main() {
 	app := fiber.New()
 
 	app.Use(cors.New(cors.Config{
-		AllowOrigins:     "https://velai.onrender.com/", // Your frontend
+		AllowOrigins:     "http://localhost:3000",
 		AllowHeaders:     "Origin, Content-Type, Accept, Authorization",
 		AllowMethods:     "GET,POST,OPTIONS",
 		AllowCredentials: true,
