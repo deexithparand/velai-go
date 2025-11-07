@@ -1,12 +1,12 @@
-# Velai-Go 🧠
+# taskly-Go 🧠
 
-Backend service for the [Velai](https://velai.onrender.com/) platform — a task tracking and management tool, built with Golang and Fiber.
+Backend service for the [taskly](https://taskly.onrender.com/) platform — a task tracking and management tool, built with Golang and Fiber.
 
 ## 🔗 Live URLs
 
-- **Frontend**: [velai.onrender.com](https://velai.onrender.com/)
-- **Backend API**: [velai-go.onrender.com](https://velai-go.onrender.com/)  
-- **Frontend Repo**: [github.com/deexithparand/velai](https://github.com/deexithparand/velai)
+- **Frontend**: [taskly.onrender.com](https://taskly.onrender.com/)
+- **Backend API**: [taskly-go.onrender.com](https://taskly-go.onrender.com/)  
+- **Frontend Repo**: [github.com/deexithparand/taskly](https://github.com/deexithparand/taskly)
 
 ---
 
@@ -22,8 +22,8 @@ Backend service for the [Velai](https://velai.onrender.com/) platform — a task
 
 #### 1. Clone the repo
 ```bash
-git clone https://github.com/deexithparand/velai-go.git
-cd velai-go
+git clone https://github.com/deexithparand/taskly-go.git
+cd taskly-go
 ````
 
 #### 2. Run using Air (for development)
@@ -37,8 +37,8 @@ air
 #### 3. Or run with Docker
 
 ```bash
-docker build -t velai-go .
-docker run -d -p 8000:8000 velai-go
+docker build -t taskly-go .
+docker run -d -p 8000:8000 taskly-go
 ```
 
 ---
@@ -46,7 +46,7 @@ docker run -d -p 8000:8000 velai-go
 ## 📦 API
 
 All API endpoints are hosted at:
-`https://velai-go.onrender.com/`
+`https://taskly-go.onrender.com/`
 
 ## 🎥 Demo Video
 
